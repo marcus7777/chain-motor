@@ -1,0 +1,13 @@
+{
+  "name": "chain-motor-link",
+  "version": "1.0.0",
+  "description": "motor for chain",
+  "main": "chain-motor-link.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "dependencies": {
+    "polymer": "*"
+  }
+}

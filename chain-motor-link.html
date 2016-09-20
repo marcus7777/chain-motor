@@ -1,0 +1,73 @@
+<link rel="import" href="../polymer/polymer.html">
+<!--
+  `<chain-motor-link></chain-motor-link>` motor for chain
+  @demo demo.html
+-->
+<dom-module id="chain-motor-link">
+  <template>
+    <style is="custom-style">
+      :host {display:inline-block}
+      #chain {animation: xgo 1s infinite}
+      #notMagnets {animation: xpules 1s infinite}
+      @keyframes xgo{
+        0%{transform:translate(0px,0px)}
+        100%{transform:translate(28%,0px)}
+      }
+      @keyframes xpules{
+        0%{opacity: 1}
+        10%{opacity: 0}
+        28%{opacity: 1}
+        100%{opacity: 1}
+      }
+    </style>
+    <svg height="300px" width$="[[width]]" >
+      <g id=magnets >
+        <path d="M 30  70  Q 30  15 80 15 M 130 130 Q 130 185 80 185" stroke=blue stroke-width=30 fill=none />
+        <path d="M 130 70  Q 130 15 80 15 M 30  130 Q 30  185 80 185" stroke=red stroke-width=30 fill=none />
+      </g>
+      <g id=notMagnets >
+        <path d="M 30 70 Q 30 15 80 15 M 130 130 Q 130 185 80 185 M 130 70 Q 130 15 80 15 M 30 130 Q 30 185 80 185" stroke=black stroke-width=30 fill=none />
+      </g>
+      <g id=chain >
+        <circle cx$=[[chainLink]] cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx$=[[chainLink]] cy$=[[chainY]] r=10 />
+        <circle cx$=[[chainPitch]] cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx$=[[chainPitch]] cy$=[[chainY]] r=10 />
+        <circle cx=0 cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx=0 cy$=[[chainY]] r=10 />
+        <circle cx$=-[[chainPitch]] cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx$=-[[chainPitch]] cy$=[[chainY]] r=10 />
+      </g>
+    </svg>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "chain-motor-link",
+    properties:{
+      chainPitch:{
+        value:100,
+        type:Number,
+      },
+      chainLink:{
+        type:Number,
+        value:200,
+      },
+      width:{
+        type:Number,
+        value:200,
+      },
+      chainY:{
+        type:Number,
+        value:100,
+      },
+      widthMPitch:{
+        computed:"getWidthMPitch(chainPitch,width)",
+        type:Number,
+      },
+    },
+    getWidthMPitch: function(chainPitch, width){
+      return width - chainPitch 
+    },
+  })
+</script>
