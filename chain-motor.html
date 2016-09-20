@@ -1,0 +1,15 @@
+<link rel="import" href="chain-motor-link.html">
+<!--
+  `<chain-motor></chain-motor>` button to download multiple text files 
+  @demo demo.html
+-->
+<dom-module id="chain-motor">
+  <template>
+    <template is="dom-repeat" items="[1,2,3,4,5]"><chain-motor-link></chain-motor-link></template>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "chain-motor",
+  })
+</script>
