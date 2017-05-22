@@ -1,0 +1,86 @@
+<link rel="import" href="../polymer/polymer.html">
+<dom-module id="chain-motor-switch">
+  <template>
+    <style>
+      :host {display:inline-block}
+      #chain {animation: xgo 1s infinite}
+      #switch {animation: xpules 1s infinite}
+      #switched {animation: pules 1s infinite}
+      @keyframes xgo{
+        0%{transform:translate(0px,0px)}
+        100%{transform:translate(28%,0px)}
+      }
+      @keyframes pules{
+        0%{opacity: 0}
+        10%{opacity: 1}
+        28%{opacity: 0}
+        100%{opacity: 0}
+      }
+      @keyframes xpules{
+        0%{opacity: 1}
+        10%{opacity: 0}
+        28%{opacity: 1}
+        100%{opacity: 1}
+      }
+    </style>
+    <svg height="300px" width$="[[width]]" >
+      <g id=magnets >
+        <path d="M 10 70 L 10 45" stroke=red  stroke-width=10 fill=none />
+        <path d="M 10 45 L 10 20" stroke=blue stroke-width=10 fill=none />
+      </g>
+      <g id=wire>
+        <path d="M 10 130   L 10 142"   stroke=gold stroke-width=10 fill=none />
+      </g>
+      <g id=switch >
+        <path d="M 10 145   L 10 143"   stroke=gold stroke-width=10 fill=none />
+        <path d="M 10 145   L 10 147.5" stroke=blue  stroke-width=10 fill=none />
+        <path d="M 10 147.5 L 10 150"   stroke=red stroke-width=10 fill=none />
+      </g>
+      <g id=switched >
+        <path d="M 10 141   L 10 143"   stroke=gold stroke-width=10 fill=none />
+        <path d="M 10 143   L 10 145.5" stroke=blue  stroke-width=10 fill=none />
+        <path d="M 10 145.5 L 10 148"   stroke=red stroke-width=10 fill=none />
+      </g>
+      <g id=chain >
+        <circle cx$=[[chainLink]] cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx$=[[chainLink]] cy$=[[chainY]] r=10 />
+        <circle cx$=[[chainPitch]] cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx$=[[chainPitch]] cy$=[[chainY]] r=10 />
+        <circle cx=0 cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx=0 cy$=[[chainY]] r=10 />
+        <circle cx$=-[[chainPitch]] cy$=[[chainY]] r=30 fill="gray" />
+        <circle cx$=-[[chainPitch]] cy$=[[chainY]] r=10 />
+      </g>
+    </svg>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "chain-motor-switch",
+    properties:{
+      chainPitch:{
+        value:100,
+        type:Number,
+      },
+      chainLink:{
+        type:Number,
+        value:200,
+      },
+      width:{
+        type:Number,
+        value:200,
+      },
+      chainY:{
+        type:Number,
+        value:100,
+      },
+      widthMPitch:{
+        computed:"getWidthMPitch(chainPitch,width)",
+        type:Number,
+      },
+    },
+    getWidthMPitch: function(chainPitch, width){
+      return width - chainPitch 
+    },
+  })
+</script>
