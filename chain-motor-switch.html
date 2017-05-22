@@ -24,24 +24,24 @@
       }
     </style>
     <svg height="300px" width$="[[width]]" >
-      <g id=magnets >
+      <g id=magnets transform$="translate([[x]],[[y]])">
         <path d="M 10 70 L 10 45" stroke=red  stroke-width=10 fill=none />
         <path d="M 10 45 L 10 20" stroke=blue stroke-width=10 fill=none />
       </g>
-      <g id=wire>
+      <g id=wire transform$="translate([[x]],[[y]])">
         <path d="M 10 130   L 10 142"   stroke=gold stroke-width=10 fill=none />
       </g>
-      <g id=switch >
+      <g id=switch transform$="translate([[x]],[[y]])">
         <path d="M 10 145   L 10 143"   stroke=gold stroke-width=10 fill=none />
         <path d="M 10 145   L 10 147.5" stroke=blue  stroke-width=10 fill=none />
         <path d="M 10 147.5 L 10 150"   stroke=red stroke-width=10 fill=none />
       </g>
-      <g id=switched >
+      <g id=switched transform$="translate([[x]],[[y]])">
         <path d="M 10 141   L 10 143"   stroke=gold stroke-width=10 fill=none />
         <path d="M 10 143   L 10 145.5" stroke=blue  stroke-width=10 fill=none />
         <path d="M 10 145.5 L 10 148"   stroke=red stroke-width=10 fill=none />
       </g>
-      <g id=chain >
+      <g id=chain transform$="translate([[x]],[[y]])">
         <circle cx$=[[chainLink]] cy$=[[chainY]] r=30 fill="gray" />
         <circle cx$=[[chainLink]] cy$=[[chainY]] r=10 />
         <circle cx$=[[chainPitch]] cy$=[[chainY]] r=30 fill="gray" />
@@ -77,6 +77,12 @@
       widthMPitch:{
         computed:"getWidthMPitch(chainPitch,width)",
         type:Number,
+      },
+      y:{
+        value:30
+      },
+      x:{
+        value:30
       },
     },
     getWidthMPitch: function(chainPitch, width){
