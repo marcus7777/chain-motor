@@ -20,18 +20,18 @@
         100%{opacity: 1}
       }
     </style>
-    <svg height="300px" width$="[[width]]" >
-      <g id=coil>
+    <svg height="300px" width$="[[width]]">
+      <g id=coil transform="translate([[x]],[[y]])">
         <path d="M 30 70 Q 30 15 80 15 M 130 130 Q 130 185 80 185 M 130 70 Q 130 15 80 15 M 30 130 Q 30 185 80 185" stroke=gold stroke-width=80 fill=none />
       </g>
-      <g id=magnets >
+      <g id=magnets transform="translate([[x]],[[y]])">
         <path d="M 30  70  Q 30  15 80 15 M 130 130 Q 130 185 80 185" stroke=blue stroke-width=30 fill=none />
         <path d="M 130 70  Q 130 15 80 15 M 30  130 Q 30  185 80 185" stroke=red stroke-width=30 fill=none />
       </g>
-      <g id=notMagnets >
+      <g id=notMagnets transform="translate([[x]],[[y]])">
         <path d="M 30 70 Q 30 15 80 15 M 130 130 Q 130 185 80 185 M 130 70 Q 130 15 80 15 M 30 130 Q 30 185 80 185" stroke=black stroke-width=30 fill=none />
       </g>
-      <g id=chain >
+      <g id=chain transform="translate([[x]],[[y]])">
         <circle cx$=[[chainLink]] cy$=[[chainY]] r=30 fill="gray" />
         <circle cx$=[[chainLink]] cy$=[[chainY]] r=10 />
         <circle cx$=[[chainPitch]] cy$=[[chainY]] r=30 fill="gray" />
@@ -67,6 +67,12 @@
       widthMPitch:{
         computed:"getWidthMPitch(chainPitch,width)",
         type:Number,
+      },
+      y:{
+        value:30
+      },
+      x:{
+        value:30
       },
     },
     getWidthMPitch: function(chainPitch, width){
