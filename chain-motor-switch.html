@@ -7,39 +7,39 @@
       #switch {animation: xpules 1s infinite}
       #switched {animation: pules 1s infinite}
       @keyframes xgo{
-        0%{transform:translate(30px,30px)}
-        100%{transform:translate(130px,30px)}
+        0%{transform:translate(0px,30px)}
+        100%{transform:translate(100px,30px)}
       }
       @keyframes pules{
         0%{opacity: 0}
-        10%{opacity: 1}
-        28%{opacity: 0}
+        30%{opacity: 1}
+        58%{opacity: 0}
         100%{opacity: 0}
       }
       @keyframes xpules{
         0%{opacity: 1}
-        10%{opacity: 0}
-        28%{opacity: 1}
+        30%{opacity: 0}
+        58%{opacity: 1}
         100%{opacity: 1}
       }
     </style>
     <svg height="300px" width$="[[width]]" >
       <g id=magnets transform$="translate([[x]],[[y]])">
-        <path d="M 10 70 L 10 45" stroke=red  stroke-width=10 fill=none />
-        <path d="M 10 45 L 10 20" stroke=blue stroke-width=10 fill=none />
+        <path d="M 30 70 L 30 45" stroke=red  stroke-width=10 fill=none />
+        <path d="M 30 45 L 30 20" stroke=blue stroke-width=10 fill=none />
       </g>
       <g id=wire transform$="translate([[x]],[[y]])">
-        <path d="M 10 130   L 10 142"   stroke=gold stroke-width=10 fill=none />
+        <path d="M 30 130   L 30 142"   stroke=gold stroke-width=10 fill=none />
       </g>
       <g id=switch transform$="translate([[x]],[[y]])">
-        <path d="M 10 145   L 10 143"   stroke=gold stroke-width=10 fill=none />
-        <path d="M 10 145   L 10 147.5" stroke=blue  stroke-width=10 fill=none />
-        <path d="M 10 147.5 L 10 150"   stroke=red stroke-width=10 fill=none />
+        <path d="M 30 145   L 30 143"   stroke=gold stroke-width=10 fill=none />
+        <path d="M 30 145   L 30 147.5" stroke=blue  stroke-width=10 fill=none />
+        <path d="M 30 147.5 L 30 150"   stroke=red stroke-width=10 fill=none />
       </g>
       <g id=switched transform$="translate([[x]],[[y]])">
-        <path d="M 10 141   L 10 143"   stroke=gold stroke-width=10 fill=none />
-        <path d="M 10 143   L 10 145.5" stroke=blue  stroke-width=10 fill=none />
-        <path d="M 10 145.5 L 10 148"   stroke=red stroke-width=10 fill=none />
+        <path d="M 30 141   L 30 143"   stroke=gold stroke-width=10 fill=none />
+        <path d="M 30 143   L 30 145.5" stroke=blue  stroke-width=10 fill=none />
+        <path d="M 30 145.5 L 30 148"   stroke=red stroke-width=10 fill=none />
       </g>
       <g id=chain transform$="translate([[x]],[[y]])">
         <circle cx$=[[chainLink]] cy$=[[chainY]] r=30 fill="gray" />
